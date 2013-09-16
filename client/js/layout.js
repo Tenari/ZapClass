@@ -52,6 +52,6 @@ Template.layout.events({
     if (Session.get('lesson started'))
       return '';
     Session.set('lesson started', true);
-    $.lesson(Meteor.lessons.algebra[Session.get('lesson')]).run();
+    $.lesson(Meteor.lessons[Session.get('show')][Session.get('lesson')]).run();
   }
 });
