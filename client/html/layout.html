@@ -15,8 +15,13 @@
     </div>
   {{/unless}}
   {{#unless user_has_selected}}
-    <button class="nav-btn">Pre-Algebra</button>
-    <button class="nav-btn">Algebra</button>
+    <div class="breadcrumbs">
+      <a href="#" id="home">Main</a>
+    </div>
+    <div class="topic-tree">
+      <button class="nav-btn w50">Pre-Algebra</button>
+      <button class="nav-btn w50">Algebra</button>
+    </div>
   {{else}}
     <div class="breadcrumbs">
       <a href="#" id="home">Main</a>
@@ -40,9 +45,11 @@
           {{> pre_algebra_tree}}
         {{/if}}
       </div>
-      <div id="learn-arrow">
-        Learn this direction
-      </div>
+      <p>
+        Start Here
+        <span style="float:right">End Here</span>
+      </p>
+      <div id="learn-arrow"/>
     {{else}}
       {{> whiteboard}}
     {{/unless}}
