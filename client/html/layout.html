@@ -1,0 +1,49 @@
+<body>
+  <div class="backgroundstripe">
+    {{> layout}}
+  </div>
+</body>
+
+<template name="layout">
+  <button id="logo">ZapClass</button>
+  <h1>Teach me...</h1>
+  {{> ads}}
+  <div class="search-container">
+    <input type="text" id="search" class=""/>
+    <button id="search-btn">Go</button>
+  </div>
+  {{#unless user_has_selected}}
+    <button class="nav-btn">Pre-Algebra</button>
+    <button class="nav-btn">Algebra</button>
+  {{else}}
+    <div class="breadcrumbs">
+      <a href="#" id="home">Main</a>
+      >
+      <a href="#" id="subject">{{showing}}</a>
+      {{#if show2}}
+        >
+        <a href="#" id="topic">{{showing2}}</a>
+        {{#if in_lesson}}
+          >
+          <a href="#" id="lesson">{{lesson}}</a>
+        {{/if}}
+      {{/if}}
+    </div>
+    {{#unless in_lesson}}
+      <div class="topic-tree">
+        {{#if show 'Algebra'}}
+          {{> algebra_tree}}
+        {{/if}}
+        {{#if show 'Pre-Algebra'}}
+          {{> pre_algebra_tree}}
+        {{/if}}
+      </div>
+      <div id="learn-arrow">
+        Learn this direction
+      </div>
+    {{else}}
+      The Lesson Whiteboard goes here
+    {{/unless}}
+  {{/unless}}
+
+</template>

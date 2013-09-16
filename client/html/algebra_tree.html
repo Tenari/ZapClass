@@ -1,0 +1,29 @@
+<template name="algebra_tree">
+  {{#unless user_has_selected}}
+    <div class="w25">
+      <button class="tree-btn">Variables</button>
+    </div>
+    <div class="w25">
+      <button class="tree-btn">Easy Expressions</button>
+    </div>
+    <div class="w25">
+      <button class="tree-btn half">Hard Expressions</button>
+      <button class="tree-btn half">Easy Equations</button>
+    </div>
+    <div class="w25">
+      <div class="half"></div>
+      <div class="half">
+        <button class="tree-btn third">Easy Inequalities</button>
+        <button class="tree-btn third">Easy Graphing</button>
+        <button class="tree-btn third">Easy Applications</button>
+      </div>
+    </div>
+  {{else}}
+    {{#if show 'Variables'}}
+      {{> variables_tree}}
+    {{/if}}
+    {{#if show 'Easy Expressions'}}
+      {{> easy_expressions_tree}}
+    {{/if}}
+  {{/unless}}
+</template>
