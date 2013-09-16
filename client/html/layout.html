@@ -8,10 +8,12 @@
   <button id="logo">ZapClass</button>
   <h1>Teach me...</h1>
   {{> ads}}
-  <div class="search-container">
-    <input type="text" id="search" class=""/>
-    <button id="search-btn">Go</button>
-  </div>
+  {{#unless in_lesson}}
+    <div class="search-container">
+      <input type="text" id="search" class=""/>
+      <button id="search-btn">Go</button>
+    </div>
+  {{/unless}}
   {{#unless user_has_selected}}
     <button class="nav-btn">Pre-Algebra</button>
     <button class="nav-btn">Algebra</button>
