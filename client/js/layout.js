@@ -22,7 +22,7 @@ Template.layout.helpers({
 
 var show_home = function(){ clear_view();};
 var clear_view = function(level){
-  var levels = ['lesson', 'show2', 'show'];
+  var levels = ['lesson started', 'lesson', 'show2', 'show'];
   if (level == undefined) level = levels.length;
 
   for (var i = 0; i < level; i++){
@@ -40,12 +40,18 @@ Template.layout.events({
   'click #home': show_home,
   'tap #logo': show_home,  
   'tap #home': show_home,
-  'click #subject': function(){ clear_view(2); },
-  'tap #subject': function(){ clear_view(2); },
-  'click #topic': function(){ clear_view(1); },
-  'tap #topic': function(){ clear_view(1); },
+  'click #subject': function(){ clear_view(3); },
+  'tap #subject': function(){ clear_view(3); },
+  'click #topic': function(){ clear_view(2); },
+  'tap #topic': function(){ clear_view(2); },
   'click .lesson-btn': function(e){
     //show lesson
     Session.set('lesson', $(e.target).text());
+  },
+  'click .whiteboardContainerV': function(){
+    if (Session.get('lesson started'))
+      return '';
+    Session.set('lesson started', true);
+    $.lesson(Meteor.lessons.map(Session.get('lesson'))).run();
   }
 });
