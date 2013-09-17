@@ -1,4 +1,11 @@
 @import 'variables.lessimport';
+@import 'generic.less';
+
+.lessonContainer {
+  width:1000px;
+  .blk-cntr;
+  padding-top:20px;
+}
 
 #whiteboardContent{
   font-family: 'Arial Black', Gadget, sans-serif;
@@ -52,9 +59,10 @@
 } 
 
 .whiteboardContainerV{
+  .blk-cntr;
 	z-index:-1;
 	height:464px;
-	width:auto;
+	width:936px;
     background-image: -webkit-repeating-linear-gradient(91deg, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%, .1) 7.5%),
     -webkit-repeating-linear-gradient(91deg, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   4%, hsla(0,0%,  0%,.03) 4.5%),
     -webkit-repeating-linear-gradient(91deg, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%),
@@ -168,4 +176,9 @@ max-width: 150px;
      -moz-box-shadow: 0px 2px 9px rgba(80, 80, 80, 0.55);
           box-shadow: 0px 2px 9px rgba(80, 80, 80, 0.55);
   height:100%;
+}
+
+.buttonSet {
+  margin-top:11px;
+  text-align:center;
 }

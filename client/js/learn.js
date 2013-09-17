@@ -61,6 +61,15 @@
         }
       },
       setupInit: function(){
+        
+        // reset all our data
+        l.current_board = 0;
+        l.next_pts = 0;
+        l.old_pts = [];
+        l.allow_enter = true;
+        l.board_obj = {};
+        l.total_pts = 0;
+
         // add the progress bar to the page.
         $('body').append("<div class='lessonProgressBarContainer'><div class='lessonProgressBar' style='width:0%'></div></div>");
 
