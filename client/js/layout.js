@@ -53,5 +53,40 @@ Template.layout.events({
       return '';
     Session.set('lesson started', true);
     $.lesson(Meteor.lessons[Session.get('show')][Session.get('lesson')]).run();
-  }
+  },
+  'keypress #search': function(e){
+    var list = [];
+    var search = $(e.target).val().trim().toLowerCase() + String.fromCharCode(e.charCode);
+
+    _.each(Meteor.lessons, function(val, key){
+      if (key.toLowerCase().indexOf(search) != -1) list.push(key);
+      _.each(val, function(val, key){ 
+        if (key.toLowerCase().indexOf(search) != -1) list.push(key);
+      });
+    });
+
+    Meteor.effects.showList(list);
+  },
+  'focus #search':function(){
+    $('.search-list').remove();
+  },
+  'click .search-list-item':function(e){
+    var $e = $(e.target);
+    var item = $e.text().trim();
+
+    _.each(Meteor.lessons, function(val, key){
+      if (key == item) Session.set('show', item);
+      else {
+        var k2 = key;
+        _.each(val, function(val, key){ 
+          if (key == item) {
+            Session.set('show', k2);
+            Session.set('lesson', item);
+          }
+        });
+      }
+    });
+
+    $('#search').val('');
+  }  
 });
