@@ -56,7 +56,7 @@
           $('.lessonPts').remove();
         }
         else {
-          // AJAX did not return useful data.
+          // was not passed useful data
           alert('No data');
         }
       },
@@ -109,12 +109,7 @@
       advance: function(){
         var result_pts = parseInt(l.board_obj.check(), 10); // '10' means base 10
         l.next_pts = l.next_pts + result_pts;
-        url = "/lessons/" + $("#infoID").text();
-          $.ajax({ type: "PUT",
-                   url: url,
-                   success: function(d){
-                   l.total_pts = d.points_earned;
-          }});
+        l.total_pts = l.total_pts + l.next_pts;
         // result_pts will only be positive on correct answer, so we can trigger finish.
         if (result_pts > 0) {
           l.nextBoard(); 
@@ -149,19 +144,9 @@
           setTimeout(function(){$(l.opts.config.popover_container).popover('destroy');}, l.opts.config.board_lag);
         }
         
-        // Make the URL
-        url = "/lessons/" + $("#infoID").text() +                                           // The lesson id
-              "?points_earned=" + l.next_pts +                                              // The points update
-              "&progress=" + Math.floor((l.current_board / l.data.length)*100);             // The percent completion update
-        // Make the ajax request to update the points_Earned.
-        $.ajax({
-          type: "PUT",
-          url: url,
-          success: function(d){
-            $('.lessonPts').text(d.points_earned);// Display the total lesson points earned
-            l.effects.updateProgressBar(d.progress);//change length of progress bar.
-          }
-        });                                                                                 // Make the ajax request to update the lesson.
+        l.effects.updateProgressBar(Math.floor((l.current_board / l.data.length)*100));             // The percent completion update
+        $('.lessonPts').text(l.total_pts);              // Display the total lesson points earned
+
         l.next_pts = 0;
       },
       
@@ -170,19 +155,9 @@
         if(l.current_board < 0){l.current_board = 0;}   // Sanity check on current_board
         l.board_obj = $.board(l.data[l.current_board]); // construct a new board object
 
-        url = "/lessons/" + $("#infoID").text() +                                           // The lesson id
-              "?points_earned=-" + l.old_pts[l.current_board] +                             // The points are negative by string.
-              "&progress=" + Math.floor((l.current_board / l.data.length)*100);             // The percent completion update
+        l.total_pts =l.total_pts - l.old_pts[l.current_board];
+        l.effects.updateProgressBar(Math.floor((l.current_board / l.data.length)*100));             // The percent completion update
         
-        $.ajax({
-          type: "PUT",
-          url: url,
-          success: function(d){
-            $('.lessonPts').text(d.points_earned);// Display the total lesson points earned
-            l.effects.updateProgressBar(d.progress);
-          }
-        });                                                                                 // Make the ajax request to update the lesson.
-          
         // Then do the previous board
         l.board_obj.run();
       },
@@ -198,6 +173,7 @@
       checkForEnd: function() {
         if (!l.data[l.current_board]) {
           $('#doneModal').modal('show');
+          $('.lessonProgressBarContainer').remove();
         }
       },
       
