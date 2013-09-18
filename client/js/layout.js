@@ -29,7 +29,7 @@ var show_home = function(){
     window.location.pathname == '/';
 };
 var clear_view = function(level){
-  var levels = ['lesson started', 'lesson', 'show2', 'show'];
+  var levels = ['finished', 'lesson started', 'lesson', 'show2', 'show'];
   if (level == undefined) level = levels.length;
 
   for (var i = 0; i < level; i++){
@@ -45,10 +45,10 @@ Template.layout.events({
   },
   'click #home': show_home,
   'tap #home': show_home,
-  'click #subject': function(){ clear_view(3); },
-  'tap #subject': function(){ clear_view(3); },
-  'click #topic': function(){ clear_view(2); },
-  'tap #topic': function(){ clear_view(2); },
+  'click #subject': function(){ clear_view(4); },
+  'tap #subject': function(){ clear_view(4); },
+  'click #topic': function(){ clear_view(3); },
+  'tap #topic': function(){ clear_view(3); },
   'click .lesson-btn': function(e){
     //show lesson
     Session.set('lesson', $(e.target).text());
