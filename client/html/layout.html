@@ -1,13 +1,13 @@
-<body>
+<template name="all">
   <div class="backgroundstripe">
-    {{> layout}}
+    <a href='/' id="logo">ZapClass</a>
+    <h1>Teach me...</h1>
+    {{> ads}}
+    {{yield}}
   </div>
-</body>
+</template>
 
 <template name="layout">
-  <button id="logo">ZapClass</button>
-  <h1>Teach me...</h1>
-  {{> ads}}
   {{#unless in_lesson}}
     <div class="search-container">
       <input type="text" id="search" class=""/>
@@ -15,7 +15,7 @@
   {{/unless}}
   {{#unless user_has_selected}}
     <div class="breadcrumbs">
-      <a href="#" id="home">Main</a>
+      <a href="/" id="home">Main</a>
     </div>
     <div class="topic-tree">
       <button disabled class="nav-btn w50">Pre-Algebra</button>
@@ -23,7 +23,7 @@
     </div>
   {{else}}
     <div class="breadcrumbs">
-      <a href="#" id="home">Main</a>
+      <a href="/" id="home">Main</a>
       >
       <a href="#" id="subject">{{showing}}</a>
       {{#if show2}}
@@ -50,8 +50,11 @@
       </p>
       <div id="learn-arrow"/>
     {{else}}
-      {{> whiteboard}}
+      {{#if finished}}
+        {{> finished}}
+      {{else}}
+        {{> whiteboard}}
+      {{/if}}
     {{/unless}}
   {{/unless}}
-
 </template>

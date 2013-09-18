@@ -1,0 +1,12 @@
+<template name="finished">
+  <div class="finished">
+    <h2>You just finished the lesson!</h2>
+    Your results are:<br>
+    <ul>
+      <li><strong>Time:</strong> {{time}}</li>
+      <li><strong>Points:</strong> {{points}}</li>
+    </ul>
+    View these again at:<br>
+    <a href="/results/{{lessonId}}">{{here}}/results/{{lessonId}}</a>
+  </div>
+</template>
