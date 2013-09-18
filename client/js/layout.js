@@ -52,7 +52,7 @@ Template.layout.events({
     if (Session.get('lesson started'))
       return '';
     Session.set('lesson started', true);
-    $.lesson(Meteor.lessons[Session.get('show')][Session.get('lesson')]).run();
+    $.lesson(Meteor.lessons[Session.get('show')][Session.get('show2')][Session.get('lesson')]).run();
   },
   'keypress #search': function(e){
     var list = [];
@@ -62,6 +62,9 @@ Template.layout.events({
       if (key.toLowerCase().indexOf(search) != -1) list.push(key);
       _.each(val, function(val, key){ 
         if (key.toLowerCase().indexOf(search) != -1) list.push(key);
+        _.each(val, function(val, key){ 
+          if (key.toLowerCase().indexOf(search) != -1) list.push(key);
+        });
       });
     });
 
@@ -77,11 +80,21 @@ Template.layout.events({
     _.each(Meteor.lessons, function(val, key){
       if (key == item) Session.set('show', item);
       else {
-        var k2 = key;
+        var subj = key;
         _.each(val, function(val, key){ 
           if (key == item) {
-            Session.set('show', k2);
-            Session.set('lesson', item);
+            Session.set('show', subj);
+            Session.set('show2', item);
+          }
+          else{
+            var topic = key;
+            _.each(val, function(v, k){
+              if (k == item){
+                Session.set('show', subj);
+                Session.set('show2', topic);
+                Session.set('lesson', k);
+              }
+            });
           }
         });
       }

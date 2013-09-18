@@ -69,6 +69,7 @@
         l.allow_enter = true;
         l.board_obj = {};
         l.total_pts = 0;
+        l.start_time = new Date().getTime();
 
         // add the progress bar to the page.
         $('body').append("<div class='lessonProgressBarContainer'><div class='lessonProgressBar' style='width:0%'></div></div>");
@@ -181,9 +182,23 @@
       
       checkForEnd: function() {
         if (!l.data[l.current_board]) {
-          $('#doneModal').modal('show');
           $('.lessonProgressBarContainer').remove();
+          Session.set('finished', Lessons.insert({
+            lesson: Session.get('show') + Session.get('show2') + Session.get('lesson'),
+            points_earned: l.total_pts,
+            max_points: l.calcMaxPoints(),
+            start_time: l.start_time,
+            end_time: new Date().getTime()
+          }));
         }
+      },
+
+      calcMaxPoints: function(){
+        var sum = 0;
+        _.each(l.data, function(elem, index){
+          sum = sum + parseInt(elem.correct.points);
+        });
+        return sum;
       },
       
       effects: {
