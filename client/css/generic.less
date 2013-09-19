@@ -5,7 +5,12 @@
   margin-right:auto;
   margin-left:auto;
 }
-button {            /*Green buttons*/ 
+.button {            /*Green buttons*/ 
+  margin:0;
+  padding:0;
+  text-align:center;
+  box-sizing: border-box;
+  vertical-align: middle;
   -webkit-border-radius:15px;
      -moz-border-radius:15px;
           border-radius:15px;
@@ -27,10 +32,10 @@ button {            /*Green buttons*/
   &:hover{
     text-decoration:none;
     color: #eaeced;
-    background-color: darken(@coreGreen, 5%);
-    -webkit-box-shadow:inset 0px 9px 9px 0px darken(#d0e88e, 5%);
-       -moz-box-shadow:inset 0px 9px 9px 0px darken(#d0e88e, 5%);
-            box-shadow:inset 0px 9px 9px 0px darken(#d0e88e, 5%);
+    background-color: lighten(@coreGreen, 5%);
+    -webkit-box-shadow:inset 0px 9px 9px 0px lighten(#d0e88e, 5%);
+       -moz-box-shadow:inset 0px 9px 9px 0px lighten(#d0e88e, 5%);
+            box-shadow:inset 0px 9px 9px 0px lighten(#d0e88e, 5%);
   }
   &:active{
     text-decoration:none;
