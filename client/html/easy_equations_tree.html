@@ -1,32 +1,36 @@
 <template name="easy_equations_tree">
-  <div class="w20">
-    <button class="lesson-btn">Expressions vs Equations</button>
-  </div>
-  <div class="w20">
-    <button class="lesson-btn half">Basic Equations</button>
-    <button class="lesson-btn half">One-Step Equations</button>
-  </div>
-  <div class="w20">
-    <div class="half">
-      <button class="lesson-btn half">Formulas</button>
-      <button class="lesson-btn half">Decimals in Equations</button>
+  {{> topic}}
+  <div class="topic-tree">
+    <div class="w20">
+      <button class="lesson-btn">Expressions vs Equations</button>
     </div>
-  </div>
-  <div class="w20">
-    <div class="half">
-      <div class="half"></div>
+    <div class="w20">
+      <button class="lesson-btn half">Basic Equations</button>
+      <button class="lesson-btn half">One-Step Equations</button>
+    </div>
+    <div class="w20">
       <div class="half">
-        <button class="lesson-btn half">Radicals in Equations</button>
-        <button class="lesson-btn half">Fractions in Equations</button>
+        <button class="lesson-btn half">Formulas</button>
+        <button class="lesson-btn half">Decimals in Equations</button>
+      </div>
+    </div>
+    <div class="w20">
+      <div class="half">
+        <div class="half"></div>
+        <div class="half">
+          <button class="lesson-btn half">Radicals in Equations</button>
+          <button class="lesson-btn half">Fractions in Equations</button>
+        </div>
+      </div>
+    </div>
+    <div class="w20">
+      <div class="half">
+        <div class="half"></div>
+        <div class="half">
+          <button class="lesson-btn">Basic Systems of Equations</button>
+        </div>
       </div>
     </div>
   </div>
-  <div class="w20">
-    <div class="half">
-      <div class="half"></div>
-      <div class="half">
-        <button class="lesson-btn">Basic Systems of Equations</button>
-      </div>
-    </div>
-  </div>
+  {{> arrow}}
 </template>

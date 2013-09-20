@@ -1,21 +1,25 @@
 <template name="hard_expressions_tree">
-  <div class="w20">
-    <button class="lesson-btn half">FOIL</button>
-    <button class="lesson-btn half">Less-Easy Factoring</button>
+  {{> topic}}
+  <div class="topic-tree">
+    <div class="w20">
+      <button class="lesson-btn half">FOIL</button>
+      <button class="lesson-btn half">Less-Easy Factoring</button>
+    </div>
+    <div class="w20">
+      <button class="lesson-btn half">Fractions and Factoring</button>
+      <button class="lesson-btn half">Grouping</button>
+    </div>
+    <div class="w20">
+      <button class="lesson-btn">Quadratics</button>
+    </div>
+    <div class="w20">
+      <button class="lesson-btn half">Quadratic-like</button>
+      <button class="lesson-btn half">Difference of Two Squares</button>
+    </div>
+    <div class="w20">
+      <button class="lesson-btn half">Hard Fractions</button>
+      <button class="lesson-btn half">Less-Easy Quadratics</button>
+    </div>
   </div>
-  <div class="w20">
-    <button class="lesson-btn half">Fractions and Factoring</button>
-    <button class="lesson-btn half">Grouping</button>
-  </div>
-  <div class="w20">
-    <button class="lesson-btn">Quadratics</button>
-  </div>
-  <div class="w20">
-    <button class="lesson-btn half">Quadratic-like</button>
-    <button class="lesson-btn half">Difference of Two Squares</button>
-  </div>
-  <div class="w20">
-    <button class="lesson-btn half">Hard Fractions</button>
-    <button class="lesson-btn half">Less-Easy Quadratics</button>
-  </div>
+  {{> arrow}}
 </template>
