@@ -11,3 +11,10 @@ Template.topic.helpers({
     return subj;
   }
 });
+
+var makeLink = function(name, extra){
+  return "<a href='"+Meteor.utility.linkForName(name)+"' class='lesson-btn button"+extra+"'>"
+           +"<span>"+ name + "</span></a>";
+
+};
+Template.easy_expressions_tree.makeLink = makeLink;

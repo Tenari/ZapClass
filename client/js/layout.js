@@ -61,7 +61,7 @@ Template.all.events({
   'click .whiteboardContainerV': function(){
     if ($('#whiteboardContent').text() != "Click to start Learning.")
       return '';
-    $.lesson(Meteor.lessons.find(Session.get('lesson'))).run();
+    $.lesson(Meteor.utility.find(Session.get('lesson'))).run();
   },
   'keypress #search': function(e){
     var list = [];
@@ -83,32 +83,6 @@ Template.all.events({
     $('.search-list').remove();
   },
   'click .search-list-item':function(e){
-    var $e = $(e.target);
-    var item = $e.text().trim();
-
-    _.each(Meteor.lessons, function(val, key){
-      if (key == item) Session.set('show', item);
-      else {
-        var subj = key;
-        _.each(val, function(val, key){ 
-          if (key == item) {
-            Session.set('show', subj);
-            Session.set('show2', item);
-          }
-          else{
-            var topic = key;
-            _.each(val, function(v, k){
-              if (k == item){
-                Session.set('show', subj);
-                Session.set('show2', topic);
-                Session.set('lesson', k);
-              }
-            });
-          }
-        });
-      }
-    });
-
     $('#search').val('');
   }  
 });
