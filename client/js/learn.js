@@ -184,7 +184,7 @@
         if (!l.data[l.current_board]) {
           $('.lessonProgressBarContainer').remove();
           var lessonId = Lessons.insert({
-            lesson: Session.get('show') + Session.get('show2') + Session.get('lesson'),
+            lesson: Session.get('lesson'),
             points_earned: l.total_pts,
             max_points: l.calcMaxPoints(),
             start_time: l.start_time,
