@@ -1,29 +1,33 @@
 <template name="easy_applications_tree">
-  <div class="w25">
-    <button class="lesson-btn fourth">Grades</button>
-    <button class="lesson-btn fourth">Formula Problems</button>
-    <button class="lesson-btn fourth">Percents</button>
-    <button class="lesson-btn fourth">Number Sense</button>
-  </div>
-  <div class="w25">
-    <div class="fourth">
-      <button class="lesson-btn">Coins</button>
+  {{> topic}}
+  <div class="topic-tree">
+    <div class="w25">
+      <a href="/lesson/Grades" class="button lesson-btn fourth"><span>Grades</span></a>
+      <a href="/lesson/Formula Problems" class="button lesson-btn fourth"><span>Formula Problems</span></a>
+      <a href="/lesson/Percents" class="button lesson-btn fourth"><span>Percents</span></a>
+      <a href="/lesson/Number Sense" class="button lesson-btn fourth"><span>Number Sense</span></a>
     </div>
-    <div class="half">
-      <button class="lesson-btn third">Jobs</button>
-      <button class="lesson-btn third">Investments</button>
-      <button class="lesson-btn third">Mixtures</button>
+    <div class="w25">
+      <div class="fourth">
+        <a href="/lesson/Coins" class="button lesson-btn"><span>Coins</span></a>
+      </div>
+      <div class="half">
+        <a href="/lesson/Jobs" class="button lesson-btn third"><span>Jobs</span></a>
+        <a href="/lesson/Investments" class="button lesson-btn third"><span>Investments</span></a>
+        <a href="/lesson/Mixtures" class="button lesson-btn third"><span>Mixtures</span></a>
+      </div>
+      <div class="fourth">
+        <a href="/lesson/Hard Number Sense" class="button lesson-btn"><span>Hard Number Sense</span></a>
+      </div>
     </div>
-    <div class="fourth">
-      <button class="lesson-btn">Hard Number Sense</button>
+    <div class="w25">
+      <div class="fourth"/>
+      <a href="/lesson/Distance" class="button lesson-btn half"><span>Distance</span></a>
+    </div>
+    <div class="w25">
+      <div class="fourth"/>
+      <a href="/lesson/Shapes" class="button lesson-btn half"><span>Shapes</span></a>
     </div>
   </div>
-  <div class="w25">
-    <div class="fourth"/>
-    <button class="lesson-btn half">Distance</button>
-  </div>
-  <div class="w25">
-    <div class="fourth"/>
-    <button class="lesson-btn half">Shapes</button>
-  </div>
+  {{> arrow}}
 </template>

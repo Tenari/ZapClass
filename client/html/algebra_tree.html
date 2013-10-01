@@ -1,44 +1,20 @@
 <template name="algebra_tree">
-  {{#unless user_has_selected}}
-    <div class="w25">
-      <button class="tree-btn">Variables</button>
+  <div class="w25">
+    <a href="/topic/Variables" class="tree-btn button"><span>Variables</span></a>
+  </div>
+  <div class="w25">
+    <a href="/topic/Easy Expressions" class="tree-btn button"><span>Easy Expressions</span></a>
+  </div>
+  <div class="w25">
+    <a href="/topic/Hard Expressions" class="tree-btn half button"><span>Hard Expressions</span></a>
+    <a href="/topic/Easy Equations" class="tree-btn half button"><span>Easy Equations</span></a>
+  </div>
+  <div class="w25">
+    <div class="half"></div>
+    <div class="half">
+      <a href="/topic/Easy Inequalities" class="tree-btn third button"><span>Easy Inequalities</span></a>
+      <a href="/topic/Easy Graphing" class="tree-btn third button"><span>Easy Graphing</span></a>
+      <a href="/topic/Easy Applications" class="tree-btn third button"><span>Easy Applications</span></a>
     </div>
-    <div class="w25">
-      <button class="tree-btn">Easy Expressions</button>
-    </div>
-    <div class="w25">
-      <button class="tree-btn half">Hard Expressions</button>
-      <button class="tree-btn half">Easy Equations</button>
-    </div>
-    <div class="w25">
-      <div class="half"></div>
-      <div class="half">
-        <button class="tree-btn third">Easy Inequalities</button>
-        <button class="tree-btn third">Easy Graphing</button>
-        <button class="tree-btn third">Easy Applications</button>
-      </div>
-    </div>
-  {{else}}
-    {{#if show 'Variables'}}
-      {{> variables_tree}}
-    {{/if}}
-    {{#if show 'Easy Expressions'}}
-      {{> easy_expressions_tree}}
-    {{/if}}
-    {{#if show 'Hard Expressions'}}
-      {{> hard_expressions_tree}}
-    {{/if}}
-    {{#if show 'Easy Equations'}}
-      {{> easy_equations_tree}}
-    {{/if}}
-    {{#if show 'Easy Inequalities'}}
-      {{> easy_inequalities_tree}}
-    {{/if}}
-    {{#if show 'Easy Graphing'}}
-      {{> easy_graphing_tree}}
-    {{/if}}
-    {{#if show 'Easy Applications'}}
-      {{> easy_applications_tree}}
-    {{/if}}
-  {{/unless}}
+  </div>
 </template>

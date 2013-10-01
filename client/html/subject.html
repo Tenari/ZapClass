@@ -1,0 +1,17 @@
+<template name="subject">
+  {{> search}}
+    <div class="breadcrumbs">
+      <a href="/" id="home">Main</a>
+      >
+      <a href="/subject/{{this}}" id="subject">{{this}}</a>
+    </div>
+  <div class="topic-tree">
+    {{#if isAlgebra this}}
+      {{> algebra_tree}}
+    {{/if}}
+    {{#if isPreAlgebra this}}
+      {{> pre_algebra_tree}}
+    {{/if}}
+  </div>
+  {{> arrow}}
+</template>

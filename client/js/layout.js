@@ -48,16 +48,24 @@ Template.layout.events({
   'click #subject': function(){ clear_view(4); },
   'tap #subject': function(){ clear_view(4); },
   'click #topic': function(){ clear_view(3); },
-  'tap #topic': function(){ clear_view(3); },
+  'tap #topic': function(){ clear_view(3); }
+});
+
+Template.all.notMake = function(){
+  return window.location.pathname != "/make";
+};
+
+Template.all.events({
+  'click #logo': show_home,  
+  'tap #logo': show_home,
   'click .lesson-btn': function(e){
     //show lesson
     Session.set('lesson', $(e.target).text());
   },
   'click .whiteboardContainerV': function(){
-    if (Session.get('lesson started'))
+    if ($('#whiteboardContent').text() != "Click to start Learning.")
       return '';
-    Session.set('lesson started', true);
-    $.lesson(Meteor.lessons[Session.get('show')][Session.get('show2')][Session.get('lesson')]).run();
+    $.lesson(Meteor.utility.find(Session.get('lesson'))).run();
   },
   'keypress #search': function(e){
     var list = [];
@@ -79,37 +87,6 @@ Template.layout.events({
     $('.search-list').remove();
   },
   'click .search-list-item':function(e){
-    var $e = $(e.target);
-    var item = $e.text().trim();
-
-    _.each(Meteor.lessons, function(val, key){
-      if (key == item) Session.set('show', item);
-      else {
-        var subj = key;
-        _.each(val, function(val, key){ 
-          if (key == item) {
-            Session.set('show', subj);
-            Session.set('show2', item);
-          }
-          else{
-            var topic = key;
-            _.each(val, function(v, k){
-              if (k == item){
-                Session.set('show', subj);
-                Session.set('show2', topic);
-                Session.set('lesson', k);
-              }
-            });
-          }
-        });
-      }
-    });
-
     $('#search').val('');
   }  
-});
-
-Template.all.events({
-  'click #logo': show_home,  
-  'tap #logo': show_home
 });

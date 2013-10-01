@@ -1,0 +1,20 @@
+<template name="lesson">
+  {{> lesson_head}}
+  {{#unless finished}}
+    {{> whiteboard}}
+  {{else}}
+    {{> finished}}
+  {{/unless}}
+</template>
+
+<template name="lesson_head">
+  <div class="breadcrumbs">
+    <a href="/" id="home">Main</a>
+    >
+    <a href="/subject/{{subject this}}">{{subject this}}</a>
+    >
+    <a href="/topic/{{topic this}}">{{topic this}}</a>
+    >
+    <a href="/lesson/{{this}}">{{this}}</a>
+  </div>
+</template>

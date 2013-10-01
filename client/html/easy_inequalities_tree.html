@@ -1,33 +1,37 @@
 <template name="easy_inequalities_tree">
-  <div class="w14">
-    <button class="lesson-btn">Basic Inequalities</button>
-  </div>
-  <div class="w14">
-    <button class="lesson-btn">Or Equal To</button>
-  </div>
-  <div class="w14">
-    <button class="lesson-btn">Easy Solving</button>
-  </div>
-  <div class="w14">
-    <button class="lesson-btn half">Word Translation</button>
-    <button class="lesson-btn half">With Negatives</button>
-  </div>
-  <div class="w14">
-    <div class="half"></div>
-    <div class="half">
-      <button class="lesson-btn">Interval Notation</button>
+  {{> topic}}
+  <div class="topic-tree">
+    <div class="w14">
+      {{{makeLink 'Basic Inequalities' ''}}}
+    </div>
+    <div class="w14">
+      {{{makeLink 'Or Equal To' ''}}}
+    </div>
+    <div class="w14">
+      {{{makeLink 'Easy Solving' ''}}}
+    </div>
+    <div class="w14">
+      {{{makeLink 'Word Translation' 'half'}}}
+      {{{makeLink 'With Negatives' 'half'}}}
+    </div>
+    <div class="w14">
+      <div class="half"></div>
+      <div class="half">
+        {{{makeLink 'Interval Notation' ''}}}
+      </div>
+    </div>
+    <div class="w14">
+      <div class="half"></div>
+      <div class="half">
+        {{{makeLink 'Less-Easy Solving' ''}}}
+      </div>
+    </div>
+    <div class="w14">
+      <div class="half"></div>
+      <div class="half">
+        {{{makeLink 'Inequality Word Problems' ''}}}
+      </div>
     </div>
   </div>
-  <div class="w14">
-    <div class="half"></div>
-    <div class="half">
-      <button class="lesson-btn">Less-Easy Solving</button>
-    </div>
-  </div>
-  <div class="w14">
-    <div class="half"></div>
-    <div class="half">
-      <button class="lesson-btn">Inequality Word Problems</button>
-    </div>
-  </div>
+  {{> arrow}}
 </template>
