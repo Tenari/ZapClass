@@ -183,13 +183,15 @@
       checkForEnd: function() {
         if (!l.data[l.current_board]) {
           $('.lessonProgressBarContainer').remove();
-          Session.set('finished', Lessons.insert({
+          var lessonId = Lessons.insert({
             lesson: Session.get('show') + Session.get('show2') + Session.get('lesson'),
             points_earned: l.total_pts,
             max_points: l.calcMaxPoints(),
             start_time: l.start_time,
             end_time: new Date().getTime()
-          }));
+          });
+          Session.set('finished', true);
+          Session.set('finished id', lessonId);
         }
       },
 
