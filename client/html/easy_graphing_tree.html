@@ -1,37 +1,41 @@
 <template name="easy_graphing_tree">
-  <div class="w14">
-    <button class="lesson-btn half">Ordered Pairs</button>
-    <button class="lesson-btn half">A Line</button>
-  </div>
-  <div class="w14">
-    <button class="lesson-btn">Linear Equations</button>
-  </div>
-  <div class="w14">
-    <button class="lesson-btn">Plotting a Point</button>
-  </div>
-  <div class="w14">
-    <button class="lesson-btn third">Plotting a Line</button>
-    <button class="lesson-btn third">Slope</button>
-    <button class="lesson-btn third">Intercepts</button>
-  </div>
-  <div class="w14">
-    <div class="third"></div>
-    <div class="two-thirds">
-      <button class="lesson-btn">y=mx+b</button>
+  {{> topic}}
+  <div class="topic-tree">
+    <div class="w14">
+      {{{makeLink 'Ordered Pairs' 'half'}}}
+      {{{makeLink 'A Line' 'half'}}}
+    </div>
+    <div class="w14">
+      {{{makeLink 'Linear Equations' ''}}}
+    </div>
+    <div class="w14">
+      {{{makeLink 'Plotting a Point' ''}}}
+    </div>
+    <div class="w14">
+      {{{makeLink 'Plotting a Line' 'third'}}}
+      {{{makeLink 'Slope' 'third'}}}
+      {{{makeLink 'Intercepts' 'third'}}}
+    </div>
+    <div class="w14">
+      <div class="third"></div>
+      <div class="two-thirds">
+        {{{makeLink 'y=mx+b' ''}}}
+      </div>
+    </div>
+    <div class="w14">
+      <div class="third"></div>
+      <div class="two-thirds">
+        {{{makeLink 'Perpendicular and Paralell' 'half'}}}
+        {{{makeLink 'Graphing' 'half'}}}
+      </div>
+    </div>
+    <div class="w14">
+      <div class="third"></div>
+      <div class="two-thirds">
+        {{{makeLink 'Point-Slope' 'half'}}}
+        {{{makeLink 'Inequalities' 'half'}}}
+      </div>
     </div>
   </div>
-  <div class="w14">
-    <div class="third"></div>
-    <div class="two-thirds">
-      <button class="lesson-btn half">Perpendicular and Parallel</button>
-      <button class="lesson-btn half">Graphing</button>
-    </div>
-  </div>
-  <div class="w14">
-    <div class="third"></div>
-    <div class="two-thirds">
-      <button class="lesson-btn half">Point-Slope</button>
-      <button class="lesson-btn half">Inequalities</button>
-    </div>
-  </div>
+  {{> arrow}}
 </template>

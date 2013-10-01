@@ -1,60 +1,26 @@
 <template name="all">
   <div class="backgroundstripe">
     <a href='/' id="logo">ZapClass</a>
-    <h1>Teach me...</h1>
+    <h1>
+      {{#if notMake}}
+        Teach me...
+        <a class="small-link" href="/make">Make a lesson</a>
+      {{else}}
+        Make a Lesson
+      {{/if}}
+    </h1>
     {{> ads}}
     {{yield}}
   </div>
 </template>
 
 <template name="layout">
-  {{#unless in_lesson}}
-    <div class="search-container">
-      <input type="text" id="search" class=""/>
-    </div>
-  {{/unless}}
-  {{#unless user_has_selected}}
+    {{> search}}
     <div class="breadcrumbs">
       <a href="/" id="home">Main</a>
     </div>
     <div class="topic-tree">
-      <button disabled class="nav-btn w50">Pre-Algebra</button>
-      <button class="nav-btn w50">Algebra</button>
+      <a href="#" disabled class="nav-btn w50 button"><span>Pre-Algebra</span></a>
+      <a href="/subject/Algebra" class="nav-btn w50 button"><span>Algebra</span></a>
     </div>
-  {{else}}
-    <div class="breadcrumbs">
-      <a href="/" id="home">Main</a>
-      >
-      <a href="#" id="subject">{{showing}}</a>
-      {{#if show2}}
-        >
-        <a href="#" id="topic">{{showing2}}</a>
-        {{#if in_lesson}}
-          >
-          <a href="#" id="lesson">{{lesson}}</a>
-        {{/if}}
-      {{/if}}
-    </div>
-    {{#unless in_lesson}}
-      <div class="topic-tree">
-        {{#if show 'Algebra'}}
-          {{> algebra_tree}}
-        {{/if}}
-        {{#if show 'Pre-Algebra'}}
-          {{> pre_algebra_tree}}
-        {{/if}}
-      </div>
-      <p>
-        Start Here
-        <span style="float:right">End Here</span>
-      </p>
-      <div id="learn-arrow"/>
-    {{else}}
-      {{#if finished}}
-        {{> finished}}
-      {{else}}
-        {{> whiteboard}}
-      {{/if}}
-    {{/unless}}
-  {{/unless}}
 </template>
