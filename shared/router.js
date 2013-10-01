@@ -18,7 +18,7 @@ Router.map(function(){
       case 'Easy Expressions':
         this.render('easy_expressions_tree');
         break;
-      case 'Hard Applications':
+      case 'Hard Expressions':
         this.render('hard_expressions_tree');
         break;
       case 'Easy Equations':
@@ -47,4 +47,5 @@ Router.map(function(){
     path: '/results/:id',
     data: function(){ return Lessons.findOne(this.params.id); }
   });
+  this.route('make');
 });

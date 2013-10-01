@@ -51,6 +51,10 @@ Template.layout.events({
   'tap #topic': function(){ clear_view(3); }
 });
 
+Template.all.notMake = function(){
+  return window.location.pathname != "/make";
+};
+
 Template.all.events({
   'click #logo': show_home,  
   'tap #logo': show_home,

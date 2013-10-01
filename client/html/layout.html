@@ -1,7 +1,14 @@
 <template name="all">
   <div class="backgroundstripe">
     <a href='/' id="logo">ZapClass</a>
-    <h1>Teach me...</h1>
+    <h1>
+      {{#if notMake}}
+        Teach me...
+        <a class="small-link" href="/make">Make a lesson</a>
+      {{else}}
+        Make a Lesson
+      {{/if}}
+    </h1>
     {{> ads}}
     {{yield}}
   </div>
